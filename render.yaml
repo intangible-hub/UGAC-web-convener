@@ -1,0 +1,17 @@
+# render.yaml — Render Blueprint for the Django backend.
+
+services:
+  - type: web
+    name: ugac-backend
+    runtime: python
+    region: oregon
+    rootDir: backend
+    buildCommand: ./build.sh
+    startCommand: gunicorn core.wsgi:application --bind 0.0.0.0:$PORT
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DJANGO_DEBUG
+        value: "False"
+      - key: PYTHON_VERSION
+        value: "3.12.3"
