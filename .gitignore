@@ -1,0 +1,22 @@
+# Python / Django
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.egg-info/
+venv/
+.env
+
+# Node / Next.js
+node_modules/
+.next/
+.env.local
+.env*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
