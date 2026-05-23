@@ -1,4 +1,4 @@
-# seed.py — Creates demo users and courses for immediate testing.
+# Creates demo users and courses for testing.
 # Run with: python manage.py shell < seed.py
 
 import os
@@ -12,7 +12,7 @@ from courses.models import Course
 
 User = get_user_model()
 
-# ── Create users ───────────────────────────────────────────────
+# Create demo users
 users_data = [
     {'email': 'admin@university.edu', 'name': 'Admin User', 'password': 'admin123', 'role': 'admin', 'is_staff': True},
     {'email': 'alice@university.edu', 'name': 'Alice Johnson', 'password': 'student123', 'role': 'student'},
@@ -32,7 +32,7 @@ for data in users_data:
     else:
         print(f"User already exists: {data['email']}")
 
-# ── Create courses ─────────────────────────────────────────────
+# Create demo courses
 courses_data = [
     {
         'title': 'Introduction to Computer Science',

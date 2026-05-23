@@ -1,5 +1,4 @@
-# core/settings.py — Django project settings for the Course Registration Portal.
-# Uses SQLite, JWT auth, and CORS for the Next.js frontend.
+# Django settings for Course Registration Portal.
 
 import os
 from pathlib import Path
@@ -16,7 +15,7 @@ DEBUG = os.environ.get('DJANGO_DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
 
-# ── Installed apps ──────────────────────────────────────────────
+# Installed Applications
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -33,7 +32,7 @@ INSTALLED_APPS = [
     'registrations',
 ]
 
-# ── Middleware ───────────────────────────────────────────────────
+# Middleware
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -66,7 +65,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-# ── Database ────────────────────────────────────────────────────
+# Database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -74,10 +73,10 @@ DATABASES = {
     }
 }
 
-# ── Custom user model ──────────────────────────────────────────
+# Custom User Model
 AUTH_USER_MODEL = 'users.User'
 
-# ── REST Framework ─────────────────────────────────────────────
+# Django REST Framework
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -87,28 +86,28 @@ REST_FRAMEWORK = {
     ),
 }
 
-# ── JWT settings ───────────────────────────────────────────────
+# JWT Settings
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(hours=6),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
 }
 
-# ── CORS — allow the Next.js frontend ──────────────────────────
+# CORS Configuration
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
-# ── Password validators ───────────────────────────────────────
+# Password Validation
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
 ]
 
-# ── Internationalisation ──────────────────────────────────────
+# Internationalization
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# ── Static files ───────────────────────────────────────────────
+# Static Files
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

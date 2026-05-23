@@ -2,12 +2,17 @@
 
 A full-stack university course registration system built with **Next.js** (frontend) and **Django REST Framework** (backend).
 
+## Live Deployments
+
+*   **Frontend (Next.js on Vercel):** [https://ugac-convener-system.vercel.app](https://ugac-convener-system.vercel.app)
+*   **Backend (Django on Render):** [https://ugac-web-convener.onrender.com](https://ugac-web-convener.onrender.com)
+
 ## Tech Stack
 
 | Layer    | Technology                          |
 |----------|-------------------------------------|
 | Frontend | Next.js 16 (App Router), Tailwind CSS v4, shadcn/ui |
-| Backend  | Django 4.2, Django REST Framework, SimpleJWT |
+| Backend  | Django 4.2, Django REST Framework, SimpleJWT, Gunicorn, Whitenoise |
 | Database | SQLite (zero config)                |
 
 ## Project Structure
@@ -31,14 +36,14 @@ UGAC_Assignment/
 └── README.md
 ```
 
-## Quick Start
+## Quick Start (Local Development)
 
 ### 1. Backend
 
 ```bash
 cd backend
 
-# Create a virtual environment (optional but recommended)
+# Create a virtual environment
 python3 -m venv venv
 source venv/bin/activate
 
@@ -63,10 +68,8 @@ cd frontend
 # Install dependencies
 npm install
 
-# Create environment file
-cp ../.env.example .env.local
-# Or simply create .env.local with:
-# NEXT_PUBLIC_API_URL=http://localhost:8000/api
+# Create environment file pointing to local backend
+echo "NEXT_PUBLIC_API_URL=http://localhost:8000/api" > .env.local
 
 # Start the dev server
 npm run dev
@@ -115,11 +118,3 @@ Visit **http://localhost:3000** in your browser.
 - [x] Loading and empty states
 - [x] Form validation with error messages
 - [x] Responsive layout (mobile + desktop)
-
-## Environment Variables
-
-See `.env.example` for all available variables:
-
-- `DJANGO_SECRET_KEY` — Django secret key (has a dev default)
-- `DJANGO_DEBUG` — Set to `True` for development
-- `NEXT_PUBLIC_API_URL` — Backend API base URL (default: `http://localhost:8000/api`)

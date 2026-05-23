@@ -11,7 +11,7 @@ class IsAdmin(permissions.BasePermission):
         return request.user.is_authenticated and request.user.role == 'admin'
 
 
-# ── Public endpoints (any authenticated user) ──────────────────
+# Public endpoints (any authenticated user)
 
 class CourseListView(generics.ListAPIView):
     """GET /api/courses/ — list all courses."""
@@ -27,7 +27,7 @@ class CourseDetailView(generics.RetrieveAPIView):
     permission_classes = [permissions.AllowAny]
 
 
-# ── Admin-only endpoints ───────────────────────────────────────
+# Admin-only endpoints
 
 class AdminCourseCreateView(generics.CreateAPIView):
     """POST /api/admin/courses/ — admin creates a course."""

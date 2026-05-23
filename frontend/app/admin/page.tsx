@@ -23,7 +23,7 @@ import {
 } from "@/components/ui/table";
 import { toast } from "sonner";
 
-// ── Types ─────────────────────────────────────────────────────
+// Types
 interface Course {
   id: number;
   title: string;
@@ -49,7 +49,7 @@ const statusStyles = {
   rejected: "bg-red-100 text-red-800 border-red-200",
 };
 
-// ── Course form fields ────────────────────────────────────────
+// Course form fields
 const emptyCourse = {
   title: "",
   description: "",
@@ -117,7 +117,7 @@ export default function AdminPage() {
     }
   }, [user, fetchCourses, fetchRegistrations]);
 
-  // ── Course CRUD ─────────────────────────────────────────────
+  // Course CRUD
   const openAddDialog = () => {
     setEditingCourse(null);
     setForm(emptyCourse);
@@ -179,7 +179,7 @@ export default function AdminPage() {
     }
   };
 
-  // ── Registration status update ──────────────────────────────
+  // Registration status update
   const updateRegistrationStatus = async (id: number, status: string) => {
     try {
       const res = await api(`/admin/registrations/${id}/`, {
@@ -212,7 +212,7 @@ export default function AdminPage() {
   return (
     <AppShell>
       <div className="max-w-5xl space-y-10">
-        {/* ── Course Management ───────────────────────────────── */}
+        {/* Course Management */}
         <section>
           <div className="flex items-center justify-between mb-4">
             <div>
@@ -282,7 +282,7 @@ export default function AdminPage() {
 
         <Separator />
 
-        {/* ── Registration Management ─────────────────────────── */}
+        {/* Registration Management */}
         <section>
           <div className="mb-4">
             <h2 className="text-xl font-semibold">Registrations</h2>
@@ -354,7 +354,7 @@ export default function AdminPage() {
         </section>
       </div>
 
-      {/* ── Add/Edit Course Dialog ─────────────────────────────── */}
+      {/* Add/Edit Course Dialog */}
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
@@ -442,7 +442,7 @@ export default function AdminPage() {
         </DialogContent>
       </Dialog>
 
-      {/* ── Delete Confirmation Dialog ─────────────────────────── */}
+      {/* Delete Confirmation Dialog */}
       <Dialog
         open={deleteConfirmId !== null}
         onOpenChange={(open) => { if (!open) setDeleteConfirmId(null); }}
