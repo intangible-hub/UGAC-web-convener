@@ -12,7 +12,7 @@ A full-stack university course registration system built with **Next.js** (front
 | Layer    | Technology                          |
 |----------|-------------------------------------|
 | Frontend | Next.js 16 (App Router), Tailwind CSS v4, shadcn/ui |
-| Backend  | Django 4.2, Django REST Framework, SimpleJWT, Gunicorn, Whitenoise |
+| Backend  | Django 4.2, Django REST Framework, SimpleJWT |
 | Database | SQLite (zero config)                |
 
 ## Project Structure
